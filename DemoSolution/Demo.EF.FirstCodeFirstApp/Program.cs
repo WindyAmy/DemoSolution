@@ -9,7 +9,7 @@ namespace Demo.EF.FirstCodeFirstApp
     {
         private static void Main(string[] args)
         {
-            Database.SetInitializer(new Initializer());
+           Database.SetInitializer(new Initializer());
             using (var context = new Context())
             {
                 //context.Database.CreateIfNotExists();//如果数据库不存在时则创建
@@ -17,38 +17,38 @@ namespace Demo.EF.FirstCodeFirstApp
 
                 #region 1.0 创建表记录
 
-                //var donators1 = new List<Donator>
-                //{
-                //    new Donator
-                //    {
-                //      Name   = "陈志康",
-                //      Amount = 50,
-                //      DonateDate = new DateTime(2016, 4, 7)
-                //    },
-                //    new Donator
-                //    {
-                //        Name = "海风",
-                //        Amount = 5,
-                //        DonateDate = new DateTime(2016, 4, 8)
-                //    },
-                //    new Donator
-                //    {
-                //        Name = "醉千秋",
-                //        Amount = 18.8m,
-                //        DonateDate = new DateTime(2016, 4, 15)
-                //    }
-                //};
-                //var entity = new Donator
-                //   {
-                //       Name = "阿文",
-                //       Amount = 18.8m,
-                //       DonateDate = new DateTime(2016, 4, 15)
-                //   };
-                //context.Entry(entity).State = EntityState.Added;
-                //context.Donators.AddRange(donators1);
-                //context.SaveChanges();
-                ////Console.Write("DB has Created!");//提示DB创建成功
-                //Console.Write("Creation Finished!");//提示创建完成
+                var donators1 = new List<Donator>
+                {
+                    new Donator
+                    {
+                      Name   = "陈志康",
+                      Amount = 50,
+                      DonateDate = new DateTime(2016, 4, 7)
+                    },
+                    new Donator
+                    {
+                        Name = "海风",
+                        Amount = 5,
+                        DonateDate = new DateTime(2016, 4, 8)
+                    },
+                    new Donator
+                    {
+                        Name = "醉千秋",
+                        Amount = 18.8m,
+                        DonateDate = new DateTime(2016, 4, 15)
+                    }
+                };
+                var entity = new Donator
+                {
+                    Name = "阿文",
+                    Amount = 18.8m,
+                    DonateDate = new DateTime(2016, 4, 15)
+                };
+                context.Entry(entity).State = EntityState.Added;
+                context.Donators.AddRange(donators1);
+                context.SaveChanges();
+                //Console.Write("DB has Created!");//提示DB创建成功
+                Console.Write("Creation Finished!");//提示创建完成
 
                 #endregion 1.0 创建表记录
 
