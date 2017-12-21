@@ -9,9 +9,10 @@ namespace Demo.EF.FirstCodeFirstApp
     {
         private static void Main(string[] args)
         {
+            Database.SetInitializer(new Initializer());
             using (var context = new Context())
             {
-                context.Database.CreateIfNotExists();//如果数据库不存在时则创建
+                //context.Database.CreateIfNotExists();//如果数据库不存在时则创建
                 //context.Database.Create();
 
                 #region 1.0 创建表记录
@@ -53,12 +54,12 @@ namespace Demo.EF.FirstCodeFirstApp
 
                 #region 2.0 查询记录
 
-                //var donators2 = context.Donators;
-                //Console.WriteLine("Id\t\t姓名\t\t金额\t\t赞助日期");
-                //foreach (var donator in donators2)
-                //{
-                //    Console.WriteLine("{0}\t\t{1}\t\t{2}\t\t{3}", donator.DonatorId, donator.Name, donator.Amount, donator.DonateDate.ToShortDateString());
-                //}
+                var donators2 = context.Donators;
+                Console.WriteLine("Id\t\t姓名\t\t金额\t\t赞助日期");
+                foreach (var donator in donators2)
+                {
+                    Console.WriteLine("{0}\t\t{1}\t\t{2}\t\t{3}", donator.DonatorId, donator.Name, donator.Amount, donator.DonateDate.ToShortDateString());
+                }
 
                 #endregion 2.0 查询记录
 
@@ -76,12 +77,12 @@ namespace Demo.EF.FirstCodeFirstApp
 
                 #region 4.0 删除记录
 
-                var toBeDeleted = context.Donators.Single(a => a.Name == "阿文Windy");
-                if (toBeDeleted != null)
-                {
-                    context.Donators.Remove(toBeDeleted);
-                    context.SaveChanges();
-                }
+                //var toBeDeleted = context.Donators.Single(a => a.Name == "阿文Windy");
+                //if (toBeDeleted != null)
+                //{
+                //    context.Donators.Remove(toBeDeleted);
+                //    context.SaveChanges();
+                //}
 
                 #endregion 4.0 删除记录
             }
