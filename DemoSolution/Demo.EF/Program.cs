@@ -10,6 +10,8 @@ namespace Demo.EF
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("test001");
+            Console.ReadLine();
         }
     }
 }
