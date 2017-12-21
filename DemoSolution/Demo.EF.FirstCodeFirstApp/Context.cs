@@ -10,10 +10,17 @@ namespace Demo.EF.FirstCodeFirstApp
     public class Context : DbContext
     {
         public Context()
-            : base("name=FirstCodeFirstApp")
+            : base("name=demoDB")
+        {
+        }
+
+        public Context(string nameOrConnectionString)
+            : base(nameOrConnectionString)
         {
         }
 
         public DbSet<Donator> Donators { get; set; }
+
+        public DbSet<PayWay> PayWays { get; set; }
     }
 }
