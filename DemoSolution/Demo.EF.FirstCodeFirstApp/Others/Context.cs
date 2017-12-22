@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Data.Common;
+using System.Data.Entity;
 
 namespace Demo.EF.FirstCodeFirstApp
 {
@@ -11,6 +12,15 @@ namespace Demo.EF.FirstCodeFirstApp
 
         public Context(string nameOrConnectionString)
             : base(nameOrConnectionString)
+        {
+        }
+
+        /// <summary>
+        /// 使用已存在的连接
+        /// </summary>
+        /// <param name="con"></param>
+        public Context(DbConnection con)
+            : base(con, contextOwnsConnection: false)
         {
         }
 
@@ -40,18 +50,18 @@ namespace Demo.EF.FirstCodeFirstApp
 
             #endregion #region 2.0 fluent API配置 配置类
 
-            modelBuilder.Entity<Employee>().Map(m =>
-            {
-                m.MapInheritedProperties();
-                m.ToTable("Employees");
-            });
+            //modelBuilder.Entity<Employee>().Map(m =>
+            //{
+            //    m.MapInheritedProperties();
+            //    m.ToTable("Employees");
+            //});
 
-            modelBuilder.Entity<Vendor>().Map(m =>
-            {
-                m.MapInheritedProperties();
-                m.ToTable("Vendors");
-            });
-
+            //modelBuilder.Entity<Vendor>().Map(m =>
+            //{
+            //    m.MapInheritedProperties();
+            //    m.ToTable("Vendors");
+            //});
+            modelBuilder.Configurations.Add(new DonatorViewInfoMap());
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DonatorViewInfo.cs" />
+    <Compile Include="DonatorViewInfoMap.cs" />
     <Compile Include="Others\Context.cs" />
     <Compile Include="Models\Donator.cs" />
     <Compile Include="Maps\DonatorMap.cs" />
@@ -63,6 +65,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataDirectory\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,11 +9,14 @@ namespace Demo.EF.FirstCodeFirstApp
     {
         private static void Main(string[] args)
         {
-           Database.SetInitializer(new Initializer());
+            Database.SetInitializer(new Initializer());
             using (var context = new Context())
             {
                 //context.Database.CreateIfNotExists();//如果数据库不存在时则创建
                 //context.Database.Create();
+
+                //var payways = context.PayWays.Where(a => a.Id == 4).ToList();
+                //var query = context.PayWays.Find(3);//该条记录直接在内存中查询不需要查询数据库
 
                 #region 1.0 创建表记录
 
@@ -38,15 +41,15 @@ namespace Demo.EF.FirstCodeFirstApp
                 //        DonateDate = new DateTime(2016, 4, 15)
                 //    }
                 //};
-                //var entity = new Donator
-                //{
-                //    Name = "阿文",
-                //    Amount = 18.8m,
-                //    DonateDate = new DateTime(2016, 4, 15)
-                //};
-                //context.Entry(entity).State = EntityState.Added;
+                var entity = new Donator
+                {
+                    Name = "阿文",
+                    Amount = 18.8m,
+                    DonateDate = new DateTime(2016, 4, 15)
+                };
+                context.Entry(entity).State = EntityState.Added;
                 //context.Donators.AddRange(donators1);
-                //context.SaveChanges();
+                context.SaveChanges();
                 ////Console.Write("DB has Created!");//提示DB创建成功
                 //Console.Write("Creation Finished!");//提示创建完成
 
@@ -88,17 +91,18 @@ namespace Demo.EF.FirstCodeFirstApp
 
                 #region 6.0 一对多关系
 
-                var donator = new Donator
-                {
-                    Amount = 6,
-                    Name = "键盘里的鼠标",
-                    DonateDate = DateTime.Parse("2016-4-13"),
-                };
-                donator.PayWays.Add(new PayWay { Name = "支付宝" });
-                donator.PayWays.Add(new PayWay { Name = "微信" });
-                context.Donators.Add(donator);
-                context.SaveChanges();
-                #endregion
+                //var donator = new Donator
+                //{
+                //    Amount = 6,
+                //    Name = "键盘里的鼠标",
+                //    DonateDate = DateTime.Parse("2016-4-13"),
+                //};
+                //donator.PayWays.Add(new PayWay { Name = "支付宝" });
+                //donator.PayWays.Add(new PayWay { Name = "微信" });
+                //context.Donators.Add(donator);
+                //context.SaveChanges();
+
+                #endregion 6.0 一对多关系
             }
 
             Console.Read();
