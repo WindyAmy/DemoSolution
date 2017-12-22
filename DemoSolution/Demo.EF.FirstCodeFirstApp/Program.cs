@@ -17,49 +17,49 @@ namespace Demo.EF.FirstCodeFirstApp
 
                 #region 1.0 创建表记录
 
-                var donators1 = new List<Donator>
-                {
-                    new Donator
-                    {
-                      Name   = "陈志康",
-                      Amount = 50,
-                      DonateDate = new DateTime(2016, 4, 7)
-                    },
-                    new Donator
-                    {
-                        Name = "海风",
-                        Amount = 5,
-                        DonateDate = new DateTime(2016, 4, 8)
-                    },
-                    new Donator
-                    {
-                        Name = "醉千秋",
-                        Amount = 18.8m,
-                        DonateDate = new DateTime(2016, 4, 15)
-                    }
-                };
-                var entity = new Donator
-                {
-                    Name = "阿文",
-                    Amount = 18.8m,
-                    DonateDate = new DateTime(2016, 4, 15)
-                };
-                context.Entry(entity).State = EntityState.Added;
-                context.Donators.AddRange(donators1);
-                context.SaveChanges();
-                //Console.Write("DB has Created!");//提示DB创建成功
-                Console.Write("Creation Finished!");//提示创建完成
+                //var donators1 = new List<Donator>
+                //{
+                //    new Donator
+                //    {
+                //      Name   = "陈志康",
+                //      Amount = 50,
+                //      DonateDate = new DateTime(2016, 4, 7)
+                //    },
+                //    new Donator
+                //    {
+                //        Name = "海风",
+                //        Amount = 5,
+                //        DonateDate = new DateTime(2016, 4, 8)
+                //    },
+                //    new Donator
+                //    {
+                //        Name = "醉千秋",
+                //        Amount = 18.8m,
+                //        DonateDate = new DateTime(2016, 4, 15)
+                //    }
+                //};
+                //var entity = new Donator
+                //{
+                //    Name = "阿文",
+                //    Amount = 18.8m,
+                //    DonateDate = new DateTime(2016, 4, 15)
+                //};
+                //context.Entry(entity).State = EntityState.Added;
+                //context.Donators.AddRange(donators1);
+                //context.SaveChanges();
+                ////Console.Write("DB has Created!");//提示DB创建成功
+                //Console.Write("Creation Finished!");//提示创建完成
 
                 #endregion 1.0 创建表记录
 
                 #region 2.0 查询记录
 
-                var donators2 = context.Donators;
-                Console.WriteLine("Id\t\t姓名\t\t金额\t\t赞助日期");
-                foreach (var donator in donators2)
-                {
-                    Console.WriteLine("{0}\t\t{1}\t\t{2}\t\t{3}", donator.DonatorId, donator.Name, donator.Amount, donator.DonateDate.ToShortDateString());
-                }
+                //var donators2 = context.Donators;
+                //Console.WriteLine("Id\t\t姓名\t\t金额\t\t赞助日期");
+                //foreach (var donator in donators2)
+                //{
+                //    Console.WriteLine("{0}\t\t{1}\t\t{2}\t\t{3}", donator.DonatorId, donator.Name, donator.Amount, donator.DonateDate.ToShortDateString());
+                //}
 
                 #endregion 2.0 查询记录
 
@@ -85,6 +85,20 @@ namespace Demo.EF.FirstCodeFirstApp
                 //}
 
                 #endregion 4.0 删除记录
+
+                #region 6.0 一对多关系
+
+                var donator = new Donator
+                {
+                    Amount = 6,
+                    Name = "键盘里的鼠标",
+                    DonateDate = DateTime.Parse("2016-4-13"),
+                };
+                donator.PayWays.Add(new PayWay { Name = "支付宝" });
+                donator.PayWays.Add(new PayWay { Name = "微信" });
+                context.Donators.Add(donator);
+                context.SaveChanges();
+                #endregion
             }
 
             Console.Read();
