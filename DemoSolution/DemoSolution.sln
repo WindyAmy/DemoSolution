@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2003
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.EF.FirstCodeFirstApp", "Demo.EF.FirstCodeFirstApp\Demo.EF.FirstCodeFirstApp.csproj", "{3CF59DC2-9B8D-4BDE-BA20-4D99405E3FF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blog App", "Blog App", "{A34DF3E8-9355-43AC-A63C-C929422FC188}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogAppDAL", "BlogAppDAL\BlogAppDAL.csproj", "{99740436-FF5E-469E-9D9B-0153278EA391}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{3CF59DC2-9B8D-4BDE-BA20-4D99405E3FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CF59DC2-9B8D-4BDE-BA20-4D99405E3FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CF59DC2-9B8D-4BDE-BA20-4D99405E3FF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99740436-FF5E-469E-9D9B-0153278EA391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99740436-FF5E-469E-9D9B-0153278EA391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99740436-FF5E-469E-9D9B-0153278EA391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99740436-FF5E-469E-9D9B-0153278EA391}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{99740436-FF5E-469E-9D9B-0153278EA391} = {A34DF3E8-9355-43AC-A63C-C929422FC188}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C9003FE2-33C4-401F-8953-99E4DD994E72}
