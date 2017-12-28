@@ -38,7 +38,9 @@ namespace BlogAppDAL
 
         public void Delete(T entity)
         {
-            _dbSet.Remove(entity);
+            _dbSet.Attach(entity);
+            _context.Entry(entity).State = EntityState.Deleted;
+            //_dbSet.Remove(entity);
         }
 
         public void Update(T entity)
