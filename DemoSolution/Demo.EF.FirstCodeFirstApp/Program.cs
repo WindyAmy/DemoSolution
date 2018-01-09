@@ -9,6 +9,7 @@ namespace Demo.EF.FirstCodeFirstApp
     {
         private static void Main(string[] args)
         {
+            //创建数据库
             Database.SetInitializer(new Initializer());
             using (var context = new Context())
             {
